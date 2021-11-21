@@ -17,6 +17,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+
+// NOTE: The purpose of this route is to ensure that we can only access the
+// routes if and only if we are logged in
+Route::group(['middleware' => ['auth:sanctum','verified',]], function(){
+
+    // NOTE: This is the route to dashboard
+    Route::get('/dashboard', function(){
+        return view('dashboard');
+    })->name('dashboard');
+
+    // NOTE: and this is the route to the pages
+    Route::get('/pages', function(){
+        return view('admin/pages');
+    })->name('pages');
+
+});
