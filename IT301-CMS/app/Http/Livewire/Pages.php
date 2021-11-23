@@ -7,6 +7,7 @@ use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\resetPage;
+use Illuminate\Support\Str;
 
 use function Livewire\str;
 
@@ -22,7 +23,8 @@ class Pages extends Component
     public $slug;
     public $title;
     public $content;
-
+    public $isSetToDefaultHomePage;
+    public $isSetToDefaultNotFoundPage;
 
     /**
      * The validation rules
@@ -41,6 +43,15 @@ class Pages extends Component
         $this -> resetPage();
     }
 
+    public function updatedIsSetToDefaultHomePage() {
+        $this->isSetToDefaultNotFoundPage = null;
+    }
+
+    public function updatedIsSetToDefaultNotFoundPage() {
+        $this->isSetToDefaultHomePage = null;
+    }
+
+
 
     /**
      *
@@ -50,7 +61,7 @@ class Pages extends Component
      */
     public function createShowModal() {
         $this ->resetValidation();
-        $this -> resetVars();
+        $this -> reset();
         $this -> modalFormVisible = true;
     }
 
@@ -63,7 +74,7 @@ class Pages extends Component
      */
     public function updateShowModal($id) {
         $this -> resetValidation();
-        $this -> resetVars();
+        $this -> reset();
         $this -> modelId = $id;
         $this ->modalFormVisible = true;
         $this -> loadModel();
@@ -80,6 +91,8 @@ class Pages extends Component
         $this->title = $data->title;
         $this->slug = $data->slug;
         $this->content = $data->content;
+        $this->isSetToDefaultHomePage = !$data->is_default_home ? null:true;
+        $this->isSetToDefaultNotFoundPage = !$data->is_default_not_found ? null:true;
     }
 
     /**
@@ -107,6 +120,8 @@ class Pages extends Component
             'title' => $this -> title,
             'content' => $this -> content,
             'slug' => $this -> slug,
+            'is_default_home' => $this -> isSetToDefaultHomePage,
+            'is_default_not_found' => $this -> isSetToDefaultNotFoundPage,
         ];
     }
 
@@ -117,9 +132,11 @@ class Pages extends Component
      */
     public function create() {
         $this -> validate();
+        $this -> unassignDefaultHomePage();
+        $this -> unassignDefaultNotFoundPage();
         Page::create($this -> modelData());
         $this -> modalFormVisible = false;
-        $this -> resetVars();
+        $this -> reset();
     }
 
     /**
@@ -139,6 +156,8 @@ class Pages extends Component
      */
     public function update() {
         $this -> validate();
+        $this -> unassignDefaultHomePage();
+        $this -> unassignDefaultNotFoundPage();
         Page::find($this->modelId)->update($this->modelData());
         $this -> modalFormVisible = false;
 
@@ -155,18 +174,7 @@ class Pages extends Component
         $this -> modalConfirmDeleteVisible = false;
     }
 
-    /**
-     * resets all the variables
-     * to null
-     *
-     * @return void
-     */
-    public function resetVars() {
-        $this -> title = null;
-        $this -> content = null;
-        $this -> slug = null;
-        $this -> modelId = null;
-    }
+
 
     /**
      * updatedTitle will change your slug value
@@ -175,23 +183,36 @@ class Pages extends Component
      * @return void
      */
     public function updatedTitle($value) {
-        $this -> generateSlug($value);
+        $this->slug = Str::slug($value);
     }
 
 
     /**
-     * generateSlug will generate the slug name
-     * for us by reading the value then
-     * replacing all of the spaces into dashes
+     * unassign the default home page in the database table
      *
-     * @param  mixed $value
      * @return void
      */
-    private function generateSlug($value) {
-        $process1 = str_replace(" ", "-", $value);
-        $process2 = strtolower($process1);
-        $this -> slug = $process2;
+    private function unassignDefaultHomePage() {
+        if ($this->isSetToDefaultHomePage != null) {
+            Page::where('is_default_home', true)->update([
+                'is_default_home' => false,
+            ]);
+        }
     }
+
+    /**
+     * unassign the Default Not Found Page in the database table
+     *
+     * @return void
+     */
+    private function unassignDefaultNotFoundPage() {
+        if ($this->isSetToDefaultNotFoundPage != null) {
+            Page::where('is_default_not_found', true)->update([
+                'is_default_not_found' => false,
+            ]);
+        }
+    }
+
 
     /**
      * The livewire render function
