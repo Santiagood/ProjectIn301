@@ -1,3 +1,5 @@
 <div>
-    {{-- Close your eyes. Count to one. That is how long forever feels. --}}
+    <h2>{{ $title }}</h2><br>
+    <p>{!! $content !!}</p>
 </div>
+

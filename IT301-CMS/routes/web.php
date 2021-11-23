@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Frontpage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
@@ -36,3 +37,7 @@ Route::group(['middleware' => ['auth:sanctum','verified',]], function(){
     })->name('pages');
 
 });
+
+Route::get('/{urlslug}', Frontpage::class);
+
+Route::get('/', Frontpage::class);
