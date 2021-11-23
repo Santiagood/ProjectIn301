@@ -1,5 +1,5 @@
 <div>
     <h2>{{ $title }}</h2><br>
-    <p>{!! $content !!}</p>
+    <p>{{ $content }}</p>
 </div>
 

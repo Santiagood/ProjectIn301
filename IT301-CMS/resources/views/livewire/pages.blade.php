@@ -10,16 +10,16 @@
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table class="w-full divide-y divide-gray-200">
+                    <table class="items-center text-center min-w-full divide-y divide-gray-200">
                         <thead>
                             <tr>
-                                <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Title</th>
-                                <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Link</th>
-                                <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Content</th>
-                                <th class="px-6 py-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                                <th class="w-1/4 items-center text-center divide-x-1/4 px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Title</th>
+                                <th class="w-1/4 items-center text-center divide-x-1/4 px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Link</th>
+                                <th class="w-1/4 items-center text-center divide-x-1/4 px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Content</th>
+                                <th class="w-1/4 items-center text-center divide-x-1/4 px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Action</th>
                             </tr>
                         </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
+                        <tbody class="bg-white divide-x items-stretch place-content-evenly divide-gray-200">
                             @if ($data->count())
                                 @foreach ($data as $item)
                                     <tr>
@@ -29,8 +29,8 @@
                                                 {{ $item->slug}}
                                             </a>
                                         </td>
-                                        <td class="px-6 py-4 text-sm whitespace-no-wrap">{!! $item-> content !!}</td>
-                                        <td class="px-6 py-4 text-right text-sm">
+                                        <td class="px-6 py-4 text-sm whitespace-no-wrap"><textarea class="form-textarea mt-1 block w-full mx-auto resize-y border rounded-md" disabled>{!! $item-> content !!}</textarea></td>
+                                        <td class="px-6 py-4 text-sm">
                                             <x-jet-button wire:click="updateShowModal({{ $item->id }})">
                                                 {{ __('Update') }}
                                             </x-jet-button>
