@@ -1290,9 +1290,6 @@ select {
 .w-1\/4 {
 	width: 25%;
 }
-.w-1 {
-	width: 0.25rem;
-}
 .min-w-0 {
 	min-width: 0px;
 }

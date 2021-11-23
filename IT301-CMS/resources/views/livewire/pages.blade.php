@@ -94,18 +94,9 @@
                 <div class="rounded-md shadow-sm">
                     <div class="mt-1 bg-white">
                         <div class="body-content" wire:ignore>
-                            {{-- <trix-editor
-                                class="trix-content"
-                                x-ref="trix"
-                                wire:model.debounce.100000ms="content"
-                                wire:key="trix-content-unique-key"
-                            >
-                            </trix-editor>
-                            <x-jet-input id="content" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="content" /> --}}
                             <div class="flex-auto w-full mb-1 text-xs space-y-2">
                                 <textarea name="content" id="content" type="text" wire:model.debounce.800ms="content" class=" rounded-md shadow-sm w-full min-h-[100px] max-h-[300px] h-28 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4" placeholder="What's on your mind?" spellcheck="false"></textarea>
                             </div>
-                            {{-- <textarea name="content" wire:model.debounce.800ms="content" type="text" id="content" class="border-2 border-gray-500 rounded-md shadow-sm w-full"></textarea> --}}
                         </div>
                     </div>
                 </div>
