@@ -31,7 +31,7 @@
                 background-color: rgba(249,250,251,var(--tw-bg-opacity));
             }
         </style> --}}
-
+        @trixassets
         @livewireStyles
 
         <!-- Scripts -->

@@ -80,6 +80,18 @@ class Frontpage extends Component
         ->get();
     }
 
+    private function BlogsLinks() {
+        return DB::table('pages')
+        ->where('slug', '!=', 'home')
+        ->Where('slug', '!=', 'about-us')
+        ->Where('slug', '!=', 'error-404')
+        ->Where('slug', '!=', 'contact-us')
+        ->Where('slug', '!=', 'announcements')
+        ->orderBy('updated_at', 'desc')
+        ->latest()
+        ->get();
+    }
+
     /**
      * The livewire render function
      *
@@ -90,6 +102,7 @@ class Frontpage extends Component
         return view('livewire.frontpage',[
             'sideBarLinks' => $this -> sideBarLinks(),
             'topNavLinks'  => $this -> topNavLinks(),
+            'BlogsLinks'   => $this ->BlogsLinks(),
         ])->layout('layouts.frontpage');
     }
 }

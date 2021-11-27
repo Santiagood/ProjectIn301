@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 // NOTE: The purpose of this route is to ensure that we can only access the
 // routes if and only if we are logged in
-Route::group(['middleware' => ['auth:sanctum','verified',]], function(){
+Route::group(['middleware' => ['auth:sanctum','verified','accessrole']], function(){
 
     // NOTE: This is the route to dashboard
     Route::get('/dashboard', function(){
@@ -40,7 +40,14 @@ Route::group(['middleware' => ['auth:sanctum','verified',]], function(){
         return view('admin/navigation-menus');
     })->name('navigation-menus');
 
+
 });
+
+Route::group(['middleware' => ['auth:sanctum','verified']], function(){
+    Route::get('/announcements', Frontpage::class);
+});
+
+// Route::get('/announcements', Frontpage::class);
 
 Route::get('/{urlslug}', Frontpage::class);
 

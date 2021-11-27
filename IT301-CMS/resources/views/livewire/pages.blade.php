@@ -105,7 +105,7 @@
                     <span class="ml-2 text-sm text-red-600">Set as the default 404 error page</span>
                 </label>
             </div>
-            <div class="mt-4">
+            {{-- <div class="mt-4">
                 <x-jet-label for="Content" value="{{ __('Content') }}" />
                 <div class="rounded-md shadow-sm">
                     <div class="mt-1 bg-white">
@@ -119,6 +119,22 @@
                 @error('content')
                     <span class="error">{{ $message }}</span>
                 @enderror
+            </div> --}}
+            <div class="mt-4">
+                <x-jet-label for="title" value="{{ __('Content') }}" />
+                <div class="rounded-md shadow-sm">
+                    <div class="mt-1 bg-white">
+                        <div class="body-content" wire:ignore>
+                            <trix-editor
+                                class="trix-content"
+                                x-ref="trix"
+                                wire:model.debounce.100000ms="content"
+                                wire:key="trix-content-unique-key"
+                            ></trix-editor>
+                        </div>
+                    </div>
+                </div>
+                @error('content') <span class="error">{{ $message }}</span> @enderror
             </div>
         </x-slot>
 

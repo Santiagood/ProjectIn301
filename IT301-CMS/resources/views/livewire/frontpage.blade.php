@@ -111,6 +111,51 @@
                             <p class="text-lg font-bold">{{ $content }}</p>
                         </div>
                     </article>
+                @elseif (Request::is('announcements'))
+                    {{-- <h1 class="text-3xl font-bold">{{ $title }}</h1>
+                    <article>
+                        <div class="mt-5 text-sm">
+                            <p class="text-lg font-bold">{{ $content }}</p>
+                        </div>
+                    </article> --}}
+                    {{-- <div class="card shadow-2xl lg:card-side bg-primary text-primary-content">
+                        <div class="card-body">
+                          <p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos.</p>
+                          <div class="justify-end card-actions">
+                            <button class="btn btn-primary">
+                                  More info
+
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 ml-2 stroke-current">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div> --}}
+                    <article>
+                    <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+                        @if ($BlogsLinks->count())
+                            @foreach ($BlogsLinks as $item)
+                                <div class="bg-white p-6 m-2 shadow-md border border-gray-200 rounded-lg max-w-full ">
+                                    <div class="flex flex-col justify-left mb-2 text-sm">
+                                        {{ $item->updated_at }}
+                                    </div>
+                                    <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2">{{ $item->title }}</h5>
+                                    {{-- <p class=" font-normal text-gray-700 mb-3">
+                                        {!! $item->content !!}
+                                        {!! Str::limit($item->content, 60, '...') !!}
+                                    </p> --}}
+                                    <a href="{{ url('/'.$item->slug ) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 mt-2 text-center inline-flex items-center">
+                                        Read more
+                                        <svg class="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                    </a>
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
+                    </article>
+
                 @else
                     <article>
                         <section class="text-blueGray-700 bg-white m-2 rounded-2xl shadow-2xl">
@@ -120,7 +165,7 @@
                                         {{ $dateUpdated }}
                                     </div>
                                     <h1 class="mb-8 text-2xl font-black tracking-tighter text-black md:text-5xl title-font"> {{ $title }} </h1>
-                                    <p class="mb-8 leading-relaxed text-xl text-left text-blueGray-600 ">{!! $content !!}</p>
+                                    <div class="mb-8 leading-relaxed text-xl text-left text-blueGray-600 ">{!! $content !!}</div>
                                 </div>
                             </div>
                         </section>

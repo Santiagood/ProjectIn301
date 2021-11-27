@@ -14,6 +14,9 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            fontFamily: {
+                'h-fit-content': 'fit-content(20em)',
+            },
         },
     },
 
