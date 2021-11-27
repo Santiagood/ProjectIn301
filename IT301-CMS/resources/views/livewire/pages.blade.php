@@ -33,12 +33,14 @@
                                                 {{ $item->slug}}
                                             </a>
                                         </td>
-                                        <td class="px-6 py-4 text-sm whitespace-no-wrap"><textarea class="form-textarea mt-1 block w-full mx-auto resize-y border rounded-md" disabled>{!! $item-> content !!}</textarea></td>
+                                        <td class="px-6 py-4 text-sm whitespace-no-wrap">
+                                                {!! \Illuminate\Support\Str::limit($item->content, 50, '...') !!}
+                                        </td>
                                         <td class="px-6 py-4 text-sm">
-                                            <x-jet-button wire:click="updateShowModal({{ $item->id }})">
+                                            <x-jet-button class="mx-2" wire:click="updateShowModal({{ $item->id }})">
                                                 {{ __('Update') }}
                                             </x-jet-button>
-                                            <x-jet-danger-button wire:click="deleteShowModal({{ $item->id }})">
+                                            <x-jet-danger-button class="mx-2" wire:click="deleteShowModal({{ $item->id }})">
                                                 {{ __('Delete') }}
                                             </x-jet-danger-button>
                                         </td>

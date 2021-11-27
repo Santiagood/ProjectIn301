@@ -2,7 +2,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-
 .body-content {
     max-height: 300px !important;
     overflow-y: scroll;
@@ -15,3 +14,4 @@
 .error {
     color: red;
 }
+

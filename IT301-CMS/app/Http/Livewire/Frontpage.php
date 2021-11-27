@@ -4,11 +4,13 @@ namespace App\Http\Livewire;
 
 use App\Models\Page;
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 class Frontpage extends Component
 {
     public $title;
     public $content;
+    public $dateUpdated;
 
     /**
      * the livewire mount function
@@ -48,7 +50,34 @@ class Frontpage extends Component
 
         $this->title = $data->title;
         $this->content = $data->content;
+        $this->dateUpdated = $data->updated_at;
 
+    }
+
+    /**
+     * Get all the sidebar links
+     *
+     * @return void
+     */
+    private function sideBarLinks() {
+        return DB::table('navigation_menus')
+        ->where('type', '=', 'SidebarNav')
+        ->orderBy('sequence', 'asc')
+        ->orderBy('created_at', 'asc')
+        ->get();
+    }
+
+    /**
+     * Get all the top nav links
+     *
+     * @return void
+     */
+    private function topNavLinks() {
+        return DB::table('navigation_menus')
+        ->where('type', '=', 'TopNav')
+        ->orderBy('sequence', 'asc')
+        ->orderBy('created_at', 'asc')
+        ->get();
     }
 
     /**
@@ -58,6 +87,9 @@ class Frontpage extends Component
      */
     public function render()
     {
-        return view('livewire.frontpage')->layout('layouts.frontpage');
+        return view('livewire.frontpage',[
+            'sideBarLinks' => $this -> sideBarLinks(),
+            'topNavLinks'  => $this -> topNavLinks(),
+        ])->layout('layouts.frontpage');
     }
 }
