@@ -40,6 +40,13 @@ Route::group(['middleware' => ['auth:sanctum','verified','accessrole']], functio
         return view('admin/navigation-menus');
     })->name('navigation-menus');
 
+    Route::get('/users', function(){
+        return view('admin/users');
+    })->name('users');
+
+    Route::get('/user-permissions', function(){
+        return view('admin/user-permissions');
+    })->name('user-permissions');
 
 });
 
