@@ -59,17 +59,7 @@
         <main class="bg-gray-100 p-10 min-h-screen sm:w-8/12 md:w-9/12 lg:w-10/12">
             <section class="divide-y text-gray-900">
 
-
-                @if (Request::is('home') || Request::is('/'))
-                    {{-- <h1 class="text-3xl font-bold">{{ $title }}</h1>
-                    <article>
-                        <div class="mt-5 text-sm">
-                            <p class="text-lg font-bold">{{ $content }}</p>
-                        </div>
-                        <div class=" aspect-w-16 aspect-h-9">
-                            <iframe width="700" height="500" src="{{ url('/videos/Bits.mp4') }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                    </article> --}}
+                @if (Request::is('home'))
                         <div class="flex bg-gray-100" style="height:500px;">
                             <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
                                 <div>
@@ -86,8 +76,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @elseif (Request::is('about-us'))
+
+                        {{-- Request::is('about-us') --}}
+                @elseif ($url == 'about-us')
                     <section class="text-blueGray-700 bg-white m-2 rounded-2xl shadow-2xl">
                         <div class="container flex flex-col items-center px-5 py-12 mx-auto md:flex-row lg:px-28 rounde">
                             <div class="flex flex-col items-start mb-16 text-left lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:mb-0">
@@ -104,35 +95,17 @@
                             </div>
                         </div>
                     </section>
-                @elseif (Request::is('contact-us'))
+
+                    {{-- Request::is('contact-us') --}}
+                @elseif ($url == 'contact-us')
                     <h1 class="text-3xl font-bold">{{ $title }}</h1>
                     <article>
                         <div class="mt-5 text-sm">
                             <p class="text-lg font-bold">{{ $content }}</p>
                         </div>
                     </article>
-                @elseif (Request::is('announcements'))
-                    {{-- <h1 class="text-3xl font-bold">{{ $title }}</h1>
-                    <article>
-                        <div class="mt-5 text-sm">
-                            <p class="text-lg font-bold">{{ $content }}</p>
-                        </div>
-                    </article> --}}
-                    {{-- <div class="card shadow-2xl lg:card-side bg-primary text-primary-content">
-                        <div class="card-body">
-                          <p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos.</p>
-                          <div class="justify-end card-actions">
-                            <button class="btn btn-primary">
-                                  More info
 
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 ml-2 stroke-current">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                              </svg>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div> --}}
+                @elseif (Request::is('announcements'))
                     <article>
                     <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
                         @if ($BlogsLinks->count())
@@ -156,12 +129,30 @@
                     </div>
                     </article>
 
+                @elseif ($url == 'home')
+                <div class="flex bg-gray-100" style="height:500px;">
+                    <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
+                        <div>
+                            <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">Welcome to  <span class="text-yellow-400"> BITS </span>Announcement Portal</h2>
+                            <p class="mt-2 text-sm text-gray-500 md:text-base">{{ $content }}</p>
+                            <div class="flex justify-center lg:justify-start mt-6">
+                                <a class="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800" href="https://www.facebook.com/bits.wccqc">Follow Us on Facebook</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block lg:w-1/2" style="clip-path:polygon(10% 0, 100% 0%, 100% 100%, 0 100%)">
+                        <div class="h-full object-cover" style="background-image: url(https://image.freepik.com/free-vector/boy-student-sitting-stack-books-with-laptop-flat-icon-illustration_1284-64037.jpg)">
+                            <div class="h-full bg-black opacity-10"></div>
+                        </div>
+                    </div>
+                </div>
+
                 @else
                     <article>
                         <section class="text-blueGray-700 bg-white m-2 rounded-2xl shadow-2xl">
-                            <div class=" container flex flex-col items-center px-5 py-12 mx-auto md:flex-row lg:px-28 rounde">
-                                <div class="flex flex-col items-start mb-16 text-left lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:mb-0">
-                                    <div class="flex flex-col justify-center mb-4 lg:flex-row">
+                            <div class=" container flex flex-col items-center px-4 py-4 mx-auto md:flex-row lg:px-28 rounded-md">
+                                <div class="flex flex-col items-start my-5 text-left lg:flex-grow md:w-1/2 md:mb-0">
+                                    <div class="flex pb-0 flex-col justify-center mb-4 lg:flex-row">
                                         {{ $dateUpdated }}
                                     </div>
                                     <h1 class="mb-8 text-2xl font-black tracking-tighter text-black md:text-5xl title-font"> {{ $title }} </h1>

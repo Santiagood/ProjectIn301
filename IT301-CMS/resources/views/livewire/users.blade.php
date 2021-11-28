@@ -1,9 +1,4 @@
 <div class="p-6">
-    <div class="flex items-center justify-end px-4 py-3 text-right sm:px-6">
-        <x-jet-button wire:click="createShowModal">
-            {{ __('Create') }}
-        </x-jet-button>
-    </div>
 
     {{-- The data table --}}
     <div class="flex flex-col">
@@ -13,9 +8,9 @@
                     <table class="items-center text-center min-w-full divide-y divide-gray-200">
                         <thead>
                             <tr>
-                                <th class="w-1/4 items-center text-center divide-x-1/4 px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Colums1</th>
-                                <th class="w-1/4 items-center text-center divide-x-1/4 px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Column2</th>
-                                <th class="w-1/4 items-center text-center divide-x-1/4 px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Column3</th>
+                                <th class="w-1/4 items-center text-center divide-x-1/4 px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                                <th class="w-1/4 items-center text-center divide-x-1/4 px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                                <th class="w-1/4 items-center text-center divide-x-1/4 px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Role</th>
                                 <th class="w-1/4 items-center text-center divide-x-1/4 px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Action</th>
                             </tr>
                         </thead>
@@ -23,10 +18,10 @@
                             @if ($data->count())
                                 @foreach ($data as $item)
                                     <tr>
-                                        <td class="px-6 py-2">{{ 'Record1' }}</td>
-                                        <td class="px-6 py-2">{{ 'Record2' }}</td>
-                                        <td class="px-6 py-2">{{ 'Record3' }}</td>
-                                        <td class="px-6 py-2 flex justify-end">
+                                        <td class="px-6 py-2">{{ $item->name }}</td>
+                                        <td class="px-6 py-2">{{ $item->email }}</td>
+                                        <td class="px-6 py-2">{{ $item->role }}</td>
+                                        <td class="px-6 py-2 flex justify-center">
                                             <x-jet-button wire:click="updateShowModal({{ $item->id }})">
                                                 {{ __('Update') }}
                                             </x-jet-button>
@@ -59,17 +54,19 @@
 
         <x-slot name="content">
             <div class="mt-4">
-                <x-jet-label for="" value="{{ __('Label') }}" />
-                <x-jet-input wire:model="" id="" class="block mt-1 w-full" type="text" />
-                @error('') <span class="error">{{ $message }}</span> @enderror
+                <x-jet-label for="name" value="{{ __('Name') }}" />
+                <x-jet-input wire:model="name" id="" class="block mt-1 w-full" type="text" />
+                @error('name') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
-                <x-jet-label for="" value="{{ __('Type') }}" />
-                <select wire:model="" id="" class="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 round leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                    <option value="">Options1</option>
-                    <option value="">Option2</option>
+                <x-jet-label for="role" value="{{ __('Role') }}" />
+                <select wire:model="role" id="" class="rounded-lg block appearance-none w-full mt-1 bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 round leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                    <option value="">-- Select a role --</option>
+                    @foreach (App\Models\User::userRoleList() as $key => $value)
+                        <option value="{{ $key }}">{{ $value }}</option>
+                    @endforeach
                 </select>
-                @error('') <span class="error">{{ $message }}</span> @enderror
+                @error('role') <span class="error">{{ $message }}</span> @enderror
             </div>
         </x-slot>
 

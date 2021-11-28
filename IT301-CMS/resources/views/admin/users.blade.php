@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 {{-- NOTE: you can trace the value here in the pages.blade.php in the livewire folder --}}
-                Users
+                @livewire('users')
             </div>
         </div>
     </div>

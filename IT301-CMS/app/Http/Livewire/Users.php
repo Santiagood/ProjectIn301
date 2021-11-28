@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\{{}};
+use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class {{}} extends Component
+class Users extends Component
 {
     use WithPagination;
 
@@ -17,6 +17,8 @@ class {{}} extends Component
     /**
      * Put your custom public properties here!
      */
+    public $role;
+    public $name;
 
     /**
      * The validation rules
@@ -26,6 +28,8 @@ class {{}} extends Component
     public function rules()
     {
         return [
+            'role' => 'required',
+            'name' => 'required',
         ];
     }
 
@@ -37,8 +41,9 @@ class {{}} extends Component
      */
     public function loadModel()
     {
-        $data = {{}}::find($this->modelId);
-        // Assign the variables here
+        $data = User::find($this->modelId);
+        $this->role = $data->role;
+        $this->name = $data->name;
     }
 
     /**
@@ -50,6 +55,8 @@ class {{}} extends Component
     public function modelData()
     {
         return [
+            'role' => $this->role,
+            'name' => $this->name,
         ];
     }
 
@@ -61,7 +68,7 @@ class {{}} extends Component
     public function create()
     {
         $this->validate();
-        {{}}::create($this->modelData());
+        User::create($this->modelData());
         $this->modalFormVisible = false;
         $this->reset();
     }
@@ -73,7 +80,7 @@ class {{}} extends Component
      */
     public function read()
     {
-        return {{}}::paginate(5);
+        return User::paginate(5);
     }
 
     /**
@@ -84,7 +91,7 @@ class {{}} extends Component
     public function update()
     {
         $this->validate();
-        {{}}::find($this->modelId)->update($this->modelData());
+        User::find($this->modelId)->update($this->modelData());
         $this->modalFormVisible = false;
     }
 
@@ -95,7 +102,7 @@ class {{}} extends Component
      */
     public function delete()
     {
-        {{}}::destroy($this->modelId);
+        User::destroy($this->modelId);
         $this->modalConfirmDeleteVisible = false;
         $this->resetPage();
     }
@@ -142,7 +149,7 @@ class {{}} extends Component
 
     public function render()
     {
-        return view('livewire.{{}}', [
+        return view('livewire.users', [
             'data' => $this->read(),
         ]);
     }

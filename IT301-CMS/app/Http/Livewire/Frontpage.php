@@ -11,6 +11,7 @@ class Frontpage extends Component
     public $title;
     public $content;
     public $dateUpdated;
+    public $url;
 
     /**
      * the livewire mount function
@@ -51,6 +52,7 @@ class Frontpage extends Component
         $this->title = $data->title;
         $this->content = $data->content;
         $this->dateUpdated = $data->updated_at;
+        $this->url = $data->slug;
 
     }
 
