@@ -11,6 +11,9 @@ use Illuminate\Support\Str;
 
 use function Livewire\str;
 
+use App\Exports\PagesExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class Pages extends Component
 {
 
@@ -26,6 +29,17 @@ class Pages extends Component
     public $isSetToDefaultHomePage;
     public $isSetToDefaultNotFoundPage;
     public $search = '';
+
+
+    public function exportExcel()
+    {
+        return Excel::download(new PagesExport, 'pages.xlsx');
+    }
+
+    public function exportPDF()
+    {
+        return Excel::download(new PagesExport, 'pages.pdf');
+    }
 
     /**
      * The validation rules
