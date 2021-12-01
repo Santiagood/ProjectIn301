@@ -161,11 +161,36 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
+        <div class="py-0 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
         </div>
+
+        <div class="py-0 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('pages') }}" :active="request()->routeIs('pages')">
+                {{ __('Pages') }}
+            </x-jet-responsive-nav-link>
+        </div>
+
+        <div class="py-0 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('navigation-menus') }}" :active="request()->routeIs('navigation-menus')">
+                {{ __('Navigation Menus') }}
+            </x-jet-responsive-nav-link>
+        </div>
+
+        <div class="py-0 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
+                {{ __('Users') }}
+            </x-jet-responsive-nav-link>
+        </div>
+
+        <div class="py-0 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('user-permissions') }}" :active="request()->routeIs('user-permissions')">
+                {{ __('Users Permissions') }}
+            </x-jet-responsive-nav-link>
+        </div>
+
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">

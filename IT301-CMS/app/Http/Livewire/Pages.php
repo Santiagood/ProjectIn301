@@ -25,6 +25,7 @@ class Pages extends Component
     public $content;
     public $isSetToDefaultHomePage;
     public $isSetToDefaultNotFoundPage;
+    public $search = '';
 
     /**
      * The validation rules
@@ -144,8 +145,14 @@ class Pages extends Component
      *
      * @return void
      */
-    public function read() {
-        return Page::paginate(5);
+    public function read($search) {
+
+        if(empty($search)) {
+            return Page::paginate(5);
+        }
+        else {
+            return Page::where('title', 'LIKE', '%' . $search . '%')->paginate(5);
+        }
     }
 
     /**
@@ -222,7 +229,7 @@ class Pages extends Component
     public function render()
     {
         return view('livewire.pages',[
-            'data' => $this -> read()
+            'data' => $this -> read($this->search)
         ]);
     }
 }

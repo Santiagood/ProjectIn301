@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use App\Models\Page;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class Frontpage extends Component
 {
@@ -12,6 +14,8 @@ class Frontpage extends Component
     public $content;
     public $dateUpdated;
     public $url;
+
+    public $currentUser;
 
     /**
      * the livewire mount function
@@ -21,6 +25,13 @@ class Frontpage extends Component
      */
     public function mount($urlslug = null){
         $this->retrieveContent($urlslug);
+        //pass the name of the current user
+
+        try {
+            $this->currentUser = Auth::user()->name;
+        } catch (\Throwable $th) {
+            $this->currentUser = '';
+        }
     }
 
     /**
@@ -94,6 +105,17 @@ class Frontpage extends Component
         ->get();
     }
 
+
+    private function topNavLinksForActiveUser() {
+        return DB::table('navigation_menus')
+        ->where('type', '=', 'TopNav')
+        ->where('slug', '!=', 'login')
+        ->where('slug', '!=', 'register')
+        ->orderBy('sequence', 'asc')
+        ->orderBy('created_at', 'asc')
+        ->get();
+    }
+
     /**
      * The livewire render function
      *
@@ -105,6 +127,7 @@ class Frontpage extends Component
             'sideBarLinks' => $this -> sideBarLinks(),
             'topNavLinks'  => $this -> topNavLinks(),
             'BlogsLinks'   => $this ->BlogsLinks(),
+            'topNavLinksForActiveUser' => $this -> topNavLinksForActiveUser(),
         ])->layout('layouts.frontpage');
     }
 }

@@ -1,7 +1,8 @@
 <div class="p-6">
 
-    <div class="flex items-center justify-end px-4 pb-4 text-right sm:px-6">
-        <x-jet-button wire:click="createShowModal">
+    <div class="flex items-center justify-end px-4 pb-4 text-right sm:px-6 ">
+        <x-jet-input id="search" class=" block mt-1 w-full" type="text" wire:model.debounce.800ms="search" placeholder="Search Post..." />
+        <x-jet-button wire:click="createShowModal" class="ml-10">
             {{ __('Create') }}
         </x-jet-button>
     </div>
@@ -54,9 +55,11 @@
                         </tbody>
                     </table>
                 </div>
-                <br/>
-                {{-- NOTE: this is the part of the pages control --}}
-                {{ $data -> links() }}
+                {{-- @if($data->count()>1) --}}
+                    <br/>
+                    {{-- NOTE: this is the part of the pages control --}}
+                    {{ $data -> links() }}
+                {{-- @endif --}}
             </div>
         </div>
     </div>
@@ -121,7 +124,7 @@
                 @enderror
             </div> --}}
             <div class="mt-4">
-                <x-jet-label for="title" value="{{ __('Content') }}" />
+                <x-jet-label for="content" value="{{ __('Content') }}" />
                 <div class="rounded-md shadow-sm">
                     <div class="mt-1 bg-white">
                         <div class="body-content" wire:ignore>
