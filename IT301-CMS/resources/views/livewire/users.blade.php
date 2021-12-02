@@ -1,4 +1,16 @@
 <div class="p-6">
+    <div class="flex items-center justify-end px-4 pb-4 text-right sm:px-6">
+        <x-jet-input id="search" class=" block mt-1 w-full" type="text" wire:model.debounce.800ms="search" placeholder="Search user..." />
+        <x-jet-button wire:click="exportExcel('xlsx')" class="ml-2 bg-green-500">
+            {{ __('Excel') }}
+        </x-jet-button>
+        <x-jet-button wire:click="exportPDF('pdf')" class="ml-2 bg-blue-500">
+            {{ __('PDF') }}
+        </x-jet-button>
+        <x-jet-button wire:click="createShowModal" class="ml-2">
+            {{ __('Create') }}
+        </x-jet-button>
+    </div>
 
     {{-- The data table --}}
     <div class="flex flex-col">

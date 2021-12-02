@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use App\Models\NavigationMenu;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Exports\NavigationMenusExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class NavigationMenus extends Component
 {
@@ -13,11 +15,14 @@ class NavigationMenus extends Component
     public $modalFormVisible;
     public $modalConfirmDeleteVisible;
 
+    public $search;
     public $modelId;
     public $label;
     public $slug;
     public $sequence = 1;
     public $type = 'SidebarNav';
+
+
 
 
     /**
@@ -33,6 +38,17 @@ class NavigationMenus extends Component
             'type' => 'required',
         ];
     }
+
+    public function exportExcel()
+    {
+        return Excel::download(new NavigationMenusExport, 'navigation.xlsx');
+    }
+
+    public function exportPDF()
+    {
+        return Excel::download(new NavigationMenusExport, 'navigation.xlsx');
+    }
+
 
     /**
      * the create function
@@ -77,8 +93,14 @@ class NavigationMenus extends Component
      *
      * @return void
      */
-    public function read() {
-        return NavigationMenu::paginate(5);
+    public function read($search) {
+
+        if(empty($search)) {
+            return NavigationMenu::paginate(5);
+        }
+        else {
+            return NavigationMenu::where('type', 'LIKE', '%' . $search . '%')->paginate(5);
+        }
     }
 
     /**
@@ -150,7 +172,7 @@ class NavigationMenus extends Component
     public function render()
     {
         return view('livewire.navigation-menus',[
-            'data' => $this -> read(),
+            'data' => $this -> read($this->search),
         ]);
     }
 }

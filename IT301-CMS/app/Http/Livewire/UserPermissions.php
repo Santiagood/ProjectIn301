@@ -6,6 +6,9 @@ use App\Models\UserPermission;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+use App\Exports\PermissionsExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class UserPermissions extends Component
 {
     use WithPagination;
@@ -20,6 +23,18 @@ class UserPermissions extends Component
 
     public $role;
     public $routeName;
+    public $search = '';
+
+    public function exportExcel()
+    {
+        return Excel::download(new PermissionsExport, 'permissions.xlsx');
+    }
+
+    public function exportPDF()
+    {
+        return Excel::download(new PermissionsExport, 'permissions.pdf');
+    }
+
 
     /**
      * The validation rules
@@ -80,9 +95,14 @@ class UserPermissions extends Component
      *
      * @return void
      */
-    public function read()
+    public function read($search)
     {
-        return UserPermission::paginate(5);
+        if(empty($search)) {
+            return UserPermission::paginate(5);
+        }
+        else {
+            return UserPermission::where('role', 'LIKE', '%' . $search . '%')->paginate(5);
+        }
     }
 
     /**
@@ -152,7 +172,7 @@ class UserPermissions extends Component
     public function render()
     {
         return view('livewire.user-permissions', [
-            'data' => $this->read(),
+            'data' => $this->read($this->search),
         ]);
     }
 }

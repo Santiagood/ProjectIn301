@@ -6,6 +6,9 @@ use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class Users extends Component
 {
     use WithPagination;
@@ -19,6 +22,7 @@ class Users extends Component
      */
     public $role;
     public $name;
+    public $search = '';
 
     /**
      * The validation rules
@@ -31,6 +35,16 @@ class Users extends Component
             'role' => 'required',
             'name' => 'required',
         ];
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
+    }
+
+    public function exportPDF()
+    {
+        return Excel::download(new UsersExport, 'users.pdf');
     }
 
     /**
@@ -78,9 +92,14 @@ class Users extends Component
      *
      * @return void
      */
-    public function read()
+    public function read($search)
     {
-        return User::paginate(5);
+        if(empty($search)) {
+            return User::paginate(5);
+        }
+        else {
+            return User::where('name', 'LIKE', '%' . $search . '%')->paginate(5);
+        }
     }
 
     /**
@@ -150,7 +169,7 @@ class Users extends Component
     public function render()
     {
         return view('livewire.users', [
-            'data' => $this->read(),
+            'data' => $this->read($this->search),
         ]);
     }
 }
