@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2021 at 05:39 PM
+-- Generation Time: Dec 14, 2021 at 09:15 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -96,7 +96,8 @@ INSERT INTO `navigation_menus` (`id`, `sequence`, `type`, `label`, `slug`, `crea
 (6, 3, 'SidebarNav', 'Contact Us', 'contact-us', '2021-11-26 05:50:41', '2021-11-26 16:55:01'),
 (9, 1, 'TopNav', 'Login', 'login', '2021-11-26 06:39:09', '2021-11-27 20:17:59'),
 (10, 2, 'TopNav', 'Register', 'register', '2021-11-26 06:40:39', '2021-11-27 20:18:05'),
-(14, 4, 'SidebarNav', 'Announcements', 'announcements', '2021-11-28 03:34:17', '2021-11-28 08:00:05');
+(14, 2, 'TopNav', 'Announcements', 'announcements', '2021-11-28 03:34:17', '2021-12-01 16:36:56'),
+(15, 4, 'SidebarNav', 'Important Announcement', 'free-webinar-pursue-and-traps-to-avoid-in-the-great-reopening', '2021-12-01 16:37:56', '2021-12-01 16:37:56');
 
 -- --------------------------------------------------------
 
@@ -127,7 +128,8 @@ INSERT INTO `pages` (`id`, `is_default_home`, `is_default_not_found`, `title`, `
 (34, NULL, 0, 'Announcements', 'announcements', '<div>List of announcement</div>', '2021-11-26 17:13:30', '2021-11-27 19:15:23'),
 (52, NULL, NULL, 'Free Webinar - An official introduction to the core concepts of cloud and AWS', 'free-webinar-an-official-introduction-to-the-core-concepts-of-cloud-and-aws', '<div>The AWS Discovery Day is a complimentary Instructor-led Virtual Master Class that is designed to provide an official introduction of AWS cloud computing concepts to business leaders and IT professionals. Business decision makers can learn how to use AWS services to improve business processes and optimize cost savings. IT professionals can leverage the foundational knowledge to embark into further role-based specialized learning paths. Participants get access to NetCom 365 - our comprehensive digital learning platform featuring reporting capabilities and a rich repository of additional resources. Being an Official AWS Partner Network (APN) training partner, we are also providing all learners complimentary VIP access to 150+ Official e-Learning courses from AWS.<br>&nbsp; <br><a href=\"https://www.netcomlearning.com/webinars/9862/aws-concepts-cloud.html?WebinarID=901\">https://www.netcomlearning.com/webinars/9862/aws-concepts-cloud.html?WebinarID=901</a></div>', '2021-11-30 18:31:47', '2021-12-01 01:23:56'),
 (53, NULL, NULL, 'Free Webinar - Learn to utilize Cisco Unified Communications for better collaboration', 'free-webinar-learn-to-utilize-cisco-unified-communications-for-better-collaboration', '<div>Disruption in communication is a common problem for businesses and organizations that affect overall productivity, collaboration, and revenue. Establish your communications infrastructure and enable your teams to connect easily with the Cisco Unified Communications Manager. It features IP telephony, integrated messaging, high-definition video, instant message, and presence.<br><br>In this FREE live webinar, you will learn about the Cisco Unified Communication- its methodological troubleshooting tools, techniques, procedures, and more. <br><br><a href=\"https://www.netcomlearning.com/webinars/9917/cisco-better-collaboration.html?WebinarID=952\">https://www.netcomlearning.com/webinars/9917/cisco-better-collaboration.html?WebinarID=952</a></div>', '2021-11-30 22:54:01', '2021-12-01 01:23:24'),
-(54, NULL, NULL, 'Free Webinar - Accelerate your AI/ML journey with Red Hat.', 'free-webinar-accelerate-your-aiml-journey-with-red-hat', '<div>Want to fasten your organization’s production process? Register now for our FREE webinar, where you will learn how to bring more flexibility, agility, scalability, and portability across hybrid cloud operations for easy development and deployment of Machine Learning models and AI-powered intelligent applications using Red Hat. <br><br>This webinar gives you a clear picture of how Red Hat can be used to scale up your business’s profit margin through successful artificial intelligence and machine learning (AI/ML) applications. <br><br><a href=\"https://www.netcomlearning.com/webinars/1121/journey-red-hat.html?WebinarID=933\">https://www.netcomlearning.com/webinars/1121/journey-red-hat.html?WebinarID=933</a></div>', '2021-12-01 00:49:45', '2021-12-01 01:22:43');
+(54, NULL, NULL, 'Free Webinar - Accelerate your AI/ML journey with Red Hat.', 'free-webinar-accelerate-your-aiml-journey-with-red-hat', '<div>Want to fasten your organization’s production process? Register now for our FREE webinar, where you will learn how to bring more flexibility, agility, scalability, and portability across hybrid cloud operations for easy development and deployment of Machine Learning models and AI-powered intelligent applications using Red Hat. <br><br>This webinar gives you a clear picture of how Red Hat can be used to scale up your business’s profit margin through successful artificial intelligence and machine learning (AI/ML) applications. <br><br><a href=\"https://www.netcomlearning.com/webinars/1121/journey-red-hat.html?WebinarID=933\">https://www.netcomlearning.com/webinars/1121/journey-red-hat.html?WebinarID=933</a></div>', '2021-12-01 00:49:45', '2021-12-01 01:22:43'),
+(56, NULL, NULL, 'Free Webinar - Pursue and Traps To Avoid in the Great Reopening', 'free-webinar-pursue-and-traps-to-avoid-in-the-great-reopening', '<div>Lockdown was imposed upon us, but how we reopen is our decision. How should you lead when everyone’s pandemic was different? What should you do and not do to lead in a hybrid environment? How can we get out of soul-crushing meeting creep and collaborate more effectively, no matter where we are? This complimentary webinar offers a practical approach to guide leaders of all stripes as they reopen, providing guidance on what works and what doesn’t when reopening.</div>', '2021-12-01 16:27:13', '2021-12-01 16:29:53');
 
 -- --------------------------------------------------------
 
@@ -179,7 +181,37 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('dHLpfkQHBjoK7SfX0OjsnYETKEBUwqqEmoszWyUF', 6, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiOERuSkFEcExrdVBHMU9VdE82UWJBODdrdWJHZUpISFMzUDVmc1p4SiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo2O3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkbUJxaTFMRS9OSTBmeEZpMHE3Z01STy9BaVluLm52UWJMQWM5T2ZCcGo2eEQ2SVFWWUtsMkMiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJG1CcWkxTEUvTkkwZnhGaTBxN2dNUk8vQWlZbi5udlFiTEFjOU9mQnBqNnhENklRVllLbDJDIjt9', 1638374616);
+('5OvAAUrlq3Ubuo2kip8xPRcrIfO1zuj0lhZ6iSz7', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoid25ya0RId1dDdkdxaVhPRXZmbXJCTHhKRFFEemdLdVRMVnZ5c0ZLTSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1638447321),
+('6M7dCmu5fkhCS9fx0wf9S9vWwCaubK7TLANkoilm', 6, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36 Edg/96.0.1054.34', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoicjdsbWJLcW1mYzhlTktHVUpXTXRwNzBwS1ZYeG9uMUNEMGJmMWhtSSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC91c2VyLXBlcm1pc3Npb25zIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6NjtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJFFZMXFsanpsb25nbXZKYi9tY0paeC5sVnl6TzRoakx6VXMwL1BDekprN3hwT0gwNDNwclIuIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRRWTFxbGp6bG9uZ212SmIvbWNKWngubFZ5ek80aGpMelVzMC9QQ3pKazd4cE9IMDQzcHJSLiI7fQ==', 1638449451),
+('8ao7SuoXr3HvE6eop9foMuFVi6vULZ2HBwHCZiNy', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiNFZXZ0lUUEdGejFkY0NaOUlFRjRCSEg3cmcwekxCOE5obWw3dG5PQyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1638447374),
+('8tq1zKARUjaBqSIqycJwXiMlmdsUPC1B1CJYTh5z', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoienpRZjNWRWY1RzAxbGVTZTB0V1QwU1ZKMEZYZm5hb01ZTTF0bXBhQiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hYm91dC11cyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1638447268),
+('BhYn5j5zW6UZzwYFW620LBgnOWmxvKyfqD6cczIt', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiWHNFT2hrQmtacUtQSmpOSlYxZWtUWTZiU0tqdW5jMkcycDBrcHhpdiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1638447374),
+('BWIie4HtTgr4BAVwO7I0XD2Ro2yEdRdGFIbd4Hno', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiVXk4ZkJJU0lFNmNaaHVWS09VSkZLRGhOb2RzYXhhTXFxWjE5bkhjSyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1638447319),
+('CKzMzIKAi58GaLMOlLlsAg5VqSUA2ZxAaUX2y8vV', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRjU0RDJ5enMyeUZrQjJhdkhhQkM0VDVyNHFHNUk0UGd3ZHZVSmJFVyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1638447292),
+('eREWUXaeKlHTlW6iAwXE1oAb5E1wcTZ8OPqKFbTA', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoibHQycEVtdjdwaXdXUUlDUENjQ3ExcU1wSHpyTGFKd2ExT0pTOVdyaiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9ob21lIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1638447437),
+('eVGARxbOeHBnJJ0rZWpIngJc9tq9wl8Adow0VRf5', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiSUVYODZJRWpJUzBhdFdaODJ2SVlGaDV0VTBpVTJnU2ZuaEVNS1duRiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1638447449),
+('iLrx7haREbjTPDWnWzSRn6dmsKeQaj4DglUfNP3C', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTzJwQ1FUZmtPZW5NQ2p5VmdKSUN4RUtSMnBzRzhUTXVhMm5GMlA5MiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Njc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC8/X1JTU0lEXz0zMjkzMjQ5OC0wYTQzLTQ3ZTEtOWQwZC1iMjNhNzFmZGQ4N2MiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1638447168),
+('iMnzb0yd0dLqkqpsHyj5rHtM1vlPzyMgpBMMneio', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiNnZVZG84ZW9KUkJpb0l4WEFlR0ZoR0diWFBUR2xuQ3ZsZW5WWHNXTyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Njc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC8/X1JTU0lEXz0zMjkzMjQ5OC0wYTQzLTQ3ZTEtOWQwZC1iMjNhNzFmZGQ4N2MiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1638447173),
+('KNhIbDyDBEUOv0Rb9aq6k5MZIp6bGwMtc8Yxk2o5', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoieW5PR1VGa0lHTzUwejBzVTZFTWtybm1PUXVGcFpTYllqd3dvS2JNUiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Njc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC8/X1JTU0lEXz02M2QxNjI0My00ZjdmLTQ5ZGQtOTNiYy0yMDc1NWEwYjc1YmYiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1638447174),
+('KVJWWk04Huu6ljXykBpBIfzTl9eTAr2blwtPo0W9', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36 Edg/96.0.1054.34', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiT1FUZnNoekRtWkZ0YmRSSEM3T2pDOXNOZW5yQ1BaeFpkTXk5RnJuViI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1638447557),
+('KxpE1VGGo2jEnFbkrl4ACNySKSx6Di7xndGm8sef', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiYUI1eTFIdXJiV2k4ZmtnQTBUU0JacnJHWUFZTnAySENjUE5xT0pYUyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1638447344),
+('NHsmwrwiqNFgewLDIwLTEHisIn0mn88bB4EcV1iT', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoibjBTV000bk9xMGVoVHFER2tSMHVKNDRGTE5FOWFtTmRCSHpET2VuTiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1638447344),
+('nlKTq8xvAP5LAmPgikkHmNRVQVdpAEDOmU4Y0jDN', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiSWpNTXUySVhqcFpaTG9WWk5jVzZaeERHNWFvS0pSR2QzUTB3c1JRdiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Njc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC8/X1JTU0lEXz02M2QxNjI0My00ZjdmLTQ5ZGQtOTNiYy0yMDc1NWEwYjc1YmYiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1638447169),
+('nMDEJTZLDQ9tdbHUwuv3o5q4ip4ZMpyy38QGIEpJ', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoic250VVl1ajFWY1N0WmE2dXY0aHlMS21NWldsWlpOclhjOERGOEVJaSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1638447291),
+('Np5sHbqUO9SyGsOioYJ9iZI8EtwsbQznNlbxLazv', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUFBhSk5mdHJmeXo0RkVIcFNjam02M2pFeEpjNnhmZ2VzQ01wS05nZyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1638447440),
+('O7H8sqDRXwwXCFUUXVcaAvluK27x5g6OndRz4Rll', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiYlZ6bUE5alJWUXdtVzVNdnRjTXZCcGlTcjB6eGJ5M1RkV3NIWndFNiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9ob21lIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1638447263),
+('o7RvjjUT6y9Fk56vLoO6dEpgemH4jKGl54gMl3G3', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiU21idkxsaDdrU0ExbU4zY2RxTGdpakwxWk1SeURhcU55aEFTZ3hqTiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1638447320),
+('OIbmPZlI9cJzA2duztUzpqrTm5xWfimBO30hd0Wt', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoieGxYRkw5WTlDUkhIUXY1VDVoV0h4cFBJamQxNlowcDRPMmVYVVdHcCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1638447449),
+('QBQCgL2eRJmQ9qbQBmGpdUAuTshW9hmgPaJpLZPU', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWG15ZDBhWmRuaVNVOXg2Y0JGTXRBaGdrVGxtY285R1A0b1YzajcwYyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Njc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC8/X1JTU0lEXz0yM2RhMGNkOS0zMDUxLTQ1ZWMtYTU0ZC0zNjBiYmMwMWI3NDkiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1638447327),
+('QBRY4i6XDcw3322IGd28OXUPZeB94WWvCxKdZFx8', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWWtQZnVFNmYxbDNZanFSWDZiYVRvdFNZeFV1N205WWZGekpBZTVRcSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Njc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC8/X1JTU0lEXz0zMjkzMjQ5OC0wYTQzLTQ3ZTEtOWQwZC1iMjNhNzFmZGQ4N2MiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1638447327),
+('qfpgEL2GOFzMvXXYQdabVvRkeoIQTORzyhC8IpG2', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoialIzVXhOR1ZaT1JVVzVrVnRYdjhOTGlNU2FWNnRxa1R0c1pqWm91NCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1638447439),
+('QH8wqDaDhciPvjjKIfc5WLN0z23qlpIE93vhbo71', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiY3BRdG5Jc3BDb2ltQ080eHNFUUkxeUp0NWU3RFZ5Y0ozNmJyS2FDZyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Njc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC8/X1JTU0lEXz02M2QxNjI0My00ZjdmLTQ5ZGQtOTNiYy0yMDc1NWEwYjc1YmYiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1638447337),
+('qvB5OizNFH7sPpfB31ENra8ina3ee4xHvbKTqwUS', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiNXc3dVU4SzFsWDBienYzNXM1TXNpTXd5WGNRbTNCSE9QOTRNVHRHQyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Njc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC8/X1JTU0lEXz02M2QxNjI0My00ZjdmLTQ5ZGQtOTNiYy0yMDc1NWEwYjc1YmYiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1638447433),
+('SEbmikqB6BShmsJMqmpLzflC1v5e77MzXN50DAAz', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVkpmTnpnWjlreVpVZTlaWUFzQ1BQdjBqSUhZN2tHYk9EYUw4QXgzdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hYm91dC11cyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1638447268),
+('uhnZkDMUjNTlNco3S9f0uMFGvXqT7EsMShGbNTHh', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWFFtSTRlNUJmRmgwZ1dwU0NnWDY4SVVqODE2SjhKbG45clVtWFZ1QSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Njc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC8/X1JTU0lEXz0zMjkzMjQ5OC0wYTQzLTQ3ZTEtOWQwZC1iMjNhNzFmZGQ4N2MiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1638447432),
+('wZovKUKBL7fHrSFxUhepJNWEhdFLDQOXRm8tc6o4', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTmpZRWRuWHI3SmlLUERsamRjWWdYT1VQR1JRRjhGUFlNTW1HWENsZiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9ob21lIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1638447437),
+('xJ0TYHPDnlyYeA9LJfVKz42u7yHfYs2JHXx8pzip', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiOFgzYk1YMUxNWnd5NWhHRmM3RkRhcjd2MGFvYkVYMkk4bFd6bUdQNyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Njc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC8/X1JTU0lEXz0yM2RhMGNkOS0zMDUxLTQ1ZWMtYTU0ZC0zNjBiYmMwMWI3NDkiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1638447231),
+('xkMWGC6siAl01dN9NXs3cZtgl9yXq307qrexHoF2', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiT3hac1hZWVRrUUxNMjhxUDVlQUV0MTNEc1Y1SDdJTlB6WHdSNjg5MyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9ob21lIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1638447264);
 
 -- --------------------------------------------------------
 
@@ -204,7 +236,8 @@ INSERT INTO `teams` (`id`, `user_id`, `name`, `personal_team`, `created_at`, `up
 (1, 1, 'Rainier\'s Team', 1, '2021-11-21 02:27:45', '2021-11-21 02:27:45'),
 (4, 4, 'user\'s Team', 1, '2021-11-27 01:04:24', '2021-11-27 02:41:01'),
 (5, 5, 'officer\'s Team', 1, '2021-11-27 01:58:31', '2021-11-27 01:58:31'),
-(6, 6, 'admin\'s Team', 1, '2021-11-28 01:39:02', '2021-11-28 01:39:02');
+(6, 6, 'admin\'s Team', 1, '2021-11-28 01:39:02', '2021-11-28 01:39:02'),
+(7, 7, 'David\'s Team', 1, '2021-12-01 16:20:34', '2021-12-01 16:20:34');
 
 -- --------------------------------------------------------
 
@@ -300,7 +333,8 @@ INSERT INTO `users` (`id`, `role`, `name`, `email`, `email_verified_at`, `passwo
 (1, 'admin', 'Rainier', 'rainrainsantiago@gmail.com', NULL, '$2y$10$KlcbRSnd5faPxUkzHRCxAeCpWgvRJAm60ibTpv3tjGL4QhkfkeNre', NULL, NULL, NULL, 1, NULL, '2021-11-21 02:27:45', '2021-11-21 02:27:46'),
 (4, 'user', 'user', 'user@bits.org', NULL, '$2y$10$WAyWcLSJyECTZxdwc/MIQuOPKhxxOaQoBOyLZ29WdLr35B3yWPcbW', NULL, NULL, 'dAvUvyU95TH3A2SneBPh6rYn6kqv3S9AW9m13v2ODgSDZznHvmFRF90mneIQ', 4, NULL, '2021-11-27 01:04:24', '2021-11-27 21:39:11'),
 (5, 'officer', 'officer', 'officer@bits.org', NULL, '$2y$10$1IeGm3C0vp3NLk0AgEwAYukaxUxzjuOlcNZsEBsQreU9Z4dD89ClS', NULL, NULL, 'qHqqgDo7y25TeW3Uvh7FWyOr3AQQOtBwnZ6ITnNhfiRRnO7Uva2J2KY6lBFI', 5, NULL, '2021-11-27 01:58:31', '2021-11-27 02:41:51'),
-(6, 'admin', 'admin', 'admin@bits.org', NULL, '$2y$10$mBqi1LE/NI0fxFi0q7gMRO/AiYn.nvQbLAc9OfBpj6xD6IQVYKl2C', NULL, NULL, NULL, 6, NULL, '2021-11-28 01:39:02', '2021-11-28 02:03:43');
+(6, 'admin', 'admin', 'admin@bits.org', NULL, '$2y$10$QY1qljzlongmvJb/mcJZx.lVyzO4hjLzUs0/PCzJk7xpOH043prR.', NULL, NULL, NULL, 6, NULL, '2021-11-28 01:39:02', '2021-12-01 17:32:19'),
+(7, 'user', 'David Gurion', 'DavidGurion@gmail.com', NULL, '$2y$10$QrArCyUSaeOiVkFyZfdhe.5OUnVk147dfzeljsAslhz9vEpKs3YQi', NULL, NULL, NULL, 7, NULL, '2021-12-01 16:20:34', '2021-12-01 16:20:43');
 
 -- --------------------------------------------------------
 
@@ -328,7 +362,8 @@ INSERT INTO `user_permissions` (`id`, `role`, `route_name`, `created_at`, `updat
 (5, 'admin', 'user-permissions', '2021-11-27 22:13:21', '2021-11-27 22:13:21'),
 (6, 'officer', 'dashboard', '2021-11-27 22:13:32', '2021-11-27 22:13:32'),
 (7, 'officer', 'pages', '2021-11-27 22:13:40', '2021-11-27 22:13:40'),
-(11, 'user', 'dashboard', '2021-11-30 06:54:55', '2021-11-30 06:54:55');
+(11, 'user', 'dashboard', '2021-11-30 06:54:55', '2021-11-30 06:54:55'),
+(14, 'officer', 'user-permissions', '2021-12-01 16:32:34', '2021-12-01 16:32:34');
 
 --
 -- Indexes for dumped tables
@@ -448,13 +483,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `navigation_menus`
 --
 ALTER TABLE `navigation_menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -466,7 +501,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `team_invitations`
@@ -496,13 +531,13 @@ ALTER TABLE `trix_rich_texts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user_permissions`
 --
 ALTER TABLE `user_permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
