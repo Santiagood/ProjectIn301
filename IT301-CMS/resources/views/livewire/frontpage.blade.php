@@ -119,12 +119,6 @@
 
                     {{-- Request::is('contact-us') --}}
                 @elseif ($url == 'contact-us')
-                    {{-- <h1 class="text-3xl font-bold">{{ $title }}</h1>
-                    <article>
-                        <div class="mt-5 text-sm">
-                            <p class="text-lg font-bold">{{ $content }}</p>
-                        </div>
-                    </article> --}}
                     <section>
                         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                             <div class="mt-8 overflow-hidden">
@@ -196,53 +190,28 @@
 
                 @elseif (Request::is('announcements'))
                     <article>
-                        {{-- <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1"> --}}
                             @if ($BlogsLinks->count())
                             <section class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 gap-x-6 gap-y-8">
                                 @foreach ($BlogsLinks as $item)
-                                    {{-- <div class="bg-white p-6 m-2 shadow-md border border-gray-200 rounded-lg max-w-full hover:bg-gray-100">
-                                        <div class="flex flex-col justify-left mb-2 text-sm">
-                                            {{ $item->updated_at }}
-                                        </div>
-                                        <div>
-                                            <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2">{{ $item->title }}</h5>
-                                        </div>
-                                        <div>
-                                            <p class=" font-normal text-gray-700 mb-3">
-                                                {!! $item->content !!}
-                                                {!! Str::limit($item->content, 100, '...') !!}
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <a href="{{ url('/'.$item->slug ) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 mt-5 text-center inline-flex items-center">
-                                                Read more
-                                                <svg class="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                                            </a>
-                                        </div>
-                                    </div> --}}
+                                    <article class="relative w-full h-auto pb-4 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl  transition duration-300 ease-in-out  text-sm text-left"
+                                        style="background-image: url('https://image.freepik.com/free-photo/vintage-crumpled-paper-textured-background_53876-103940.jpg');">
+                                        <a href="{{ url('/'.$item->slug ) }}">
 
-                                        <article class="relative w-full h-auto pb-4 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl  transition duration-300 ease-in-out  text-sm text-left"
-                                            style="background-image: url('https://image.freepik.com/free-photo/vintage-crumpled-paper-textured-background_53876-103940.jpg');">
-                                            <a href="{{ url('/'.$item->slug ) }}">
-
-                                                <div class="absolute inset-0  group-hover:opacity-75 transition duration-300 ease-in-out"></div>
-                                                    <span class="pl-4">{{ $item->updated_at }}</span>
-                                                    <h2 class="text-black p-5 font-bold align-text-top">
-                                                        {{ $item->title }}
-                                                    </h2>
-                                                <div class="relative w-full h-auto px-4 sm:px-6 lg:px-4 flex justify-center items-center">
-                                                    <p class="text-black text-sm text-left">
-                                                        {!! Str::limit($item->content, 200, '...') !!}
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </article>
-
-
+                                            <div class="absolute inset-0  group-hover:opacity-75 transition duration-300 ease-in-out"></div>
+                                                <span class="pl-4">{{ $item->updated_at }}</span>
+                                                <h2 class="text-black p-5 font-bold align-text-top">
+                                                    {{ $item->title }}
+                                                </h2>
+                                            <div class="relative w-full h-auto px-4 sm:px-6 lg:px-4 flex justify-center items-center">
+                                                <p class="text-black text-sm text-left">
+                                                    {!! Str::limit($item->content, 200, '...') !!}
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </article>
                                 @endforeach
                                 </section>
                             @endif
-                        {{-- </div> --}}
                     </article>
 
                 @elseif ($url == 'home')
@@ -268,13 +237,13 @@
                 @else
                     <article>
                         <section class="text-blueGray-700 bg-white m-2 rounded-2xl shadow-2xl">
-                            <div class=" container flex flex-col items-center px-4 py-4 mx-auto md:flex-row lg:px-28 rounded-md">
+                            <div class=" container flex items-center break-all px-4 py-4 mx-auto md:flex-row lg:px-28 rounded-md">
                                 <div class="flex flex-col items-start my-5 text-left lg:flex-grow md:w-1/2 md:mb-0">
-                                    <div class="flex pb-0 flex-col justify-center mb-4 lg:flex-row">
+                                    <div class="flex pb-0 flex-col justify-center break-all mb-4 lg:flex-row">
                                         {{ $dateUpdated }}
                                     </div>
-                                    <h1 class="mb-8 text-2xl font-black tracking-tighter text-black md:text-5xl title-font"> {{ $title }} </h1>
-                                    <div class="mb-8 leading-relaxed text-left text-blueGray-600 lg:text-xl md:text-base sm:text-sm">{!! $content !!}</div>
+                                    <h1 class="mb-8 text-2xl font-black break-all tracking-tighter text-black md:text-4xl sm:text-base title-font"> {{ $title }} </h1>
+                                    <div class="mb-8 leading-relaxed break-all text-left text-blueGray-600 lg:text-xl md:text-base sm:text-sm">{!! $content !!}</div>
                                 </div>
                             </div>
                         </section>
